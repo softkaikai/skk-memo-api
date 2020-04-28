@@ -1,0 +1,29 @@
+{
+  "name": "skk-memo-api",
+  "version": "1.0.0",
+  "description": "api",
+  "main": "index.js",
+  "dependencies": {
+    "formidable": "^1.2.2",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^8.0.8",
+    "koa-static": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "set NODE_ENV=development && supervisor index.js",
+    "pro": "set NODE_ENV=product && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/softkaikai/skk-memo-api.git"
+  },
+  "author": "softkaikai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/softkaikai/skk-memo-api/issues"
+  },
+  "homepage": "https://github.com/softkaikai/skk-memo-api#readme"
+}
