@@ -4,6 +4,8 @@ const bodyParser = require('koa-bodyparser');
 
 const UserRouter = require('./routers/user');
 const UploadRouter = require('./routers/upload');
+const ProjectRouter = require('./routers/project');
+const TagRouter = require('./routers/tag');
 const app = new Koa();
 
 // 设置静态文件
@@ -23,9 +25,13 @@ app.use(bodyParser());
 
 app.use(UserRouter.routes());
 app.use(UploadRouter.routes());
+app.use(ProjectRouter.routes());
+app.use(TagRouter.routes());
 
 app.use(UserRouter.allowedMethods());
 app.use(UploadRouter.allowedMethods());
+app.use(ProjectRouter.allowedMethods());
+app.use(TagRouter.allowedMethods());
 app.listen(3333);
 console.log('Listening on port 3333:');
 

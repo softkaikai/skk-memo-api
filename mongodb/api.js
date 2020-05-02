@@ -23,5 +23,21 @@ module.exports = {
             })
         })
     },
+    deleteOne(collection, doc, options) {
+        return new Promise((resolve, reject) => {
+            collection.deleteOne(doc, options, (err, doc) => {
+                if (err) return reject([err, null]);
+                resolve([null, null]);
+            })
+        })
+    },
+    updateOne(collection, query, update, options) {
+        return new Promise((resolve, reject) => {
+            collection.updateOne(query, update, options, (err, doc) => {
+                if (err) return reject([err, null]);
+                resolve([null, null]);
+            })
+        })
+    },
 };
 
