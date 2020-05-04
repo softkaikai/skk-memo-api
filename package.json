@@ -16,7 +16,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "set NODE_ENV=development && supervisor index.js",
+    "dev": "export NODE_ENV=development && supervisor index.js",
     "pro": "set NODE_ENV=product && node index.js"
   },
   "repository": {

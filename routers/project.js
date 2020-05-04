@@ -10,6 +10,10 @@ router.post('/create', async (ctx, next) => {
     const dbMemo = dbClient.db('memo');
     const projectCollection = dbMemo.collection('project');
     const body = ctx.request.body;
+    if (body.owner !== '18380448902') {
+        ctx.body = getErrorBody('22', '只有长的帅的人才能创建项目😊');
+        return next();
+    }
     const [oldProjectErr, oldProject] = await dbApi.findOne(projectCollection,{title: body.title});
     if (oldProjectErr) {
         ctx.body = getSystemError();

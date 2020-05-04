@@ -6,6 +6,7 @@ const UserRouter = require('./routers/user');
 const UploadRouter = require('./routers/upload');
 const ProjectRouter = require('./routers/project');
 const TagRouter = require('./routers/tag');
+const RecordRouter = require('./routers/record');
 const app = new Koa();
 
 // 设置静态文件
@@ -27,27 +28,14 @@ app.use(UserRouter.routes());
 app.use(UploadRouter.routes());
 app.use(ProjectRouter.routes());
 app.use(TagRouter.routes());
+app.use(RecordRouter.routes());
+
 
 app.use(UserRouter.allowedMethods());
 app.use(UploadRouter.allowedMethods());
 app.use(ProjectRouter.allowedMethods());
 app.use(TagRouter.allowedMethods());
+app.use(RecordRouter.allowedMethods());
 app.listen(3333);
 console.log('Listening on port 3333:');
 
-/*$btn.on('click', () => {
-    const formData = new FormData();
-    formData.append('file', file.files[0]);
-    console.log('81 file', file.files);
-    $.ajax({
-        url: "http://10.50.50.11:3333/upload/image",
-        type: "POST",
-        data: formData,
-        processData: false, // 不处理数据
-        contentType: false, // 不设置请求头
-        cache: false,
-        success: function (data) {
-            console.log(data)
-        }
-    })
-})*/

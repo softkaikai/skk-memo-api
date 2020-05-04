@@ -2,6 +2,8 @@ const formidable = require('formidable');
 const Router = require('koa-router');
 const path = require('path');
 const fs = require('fs');
+const {getSystemError, getBody, getErrorBody} = require('../utils/tool');
+
 
 const router = new Router({prefix: '/upload'});
 
@@ -27,12 +29,11 @@ router.post('/image', async (ctx, next) => {
                 files.file.path = 'http://localhost:3333/public/images/' + files.file.name;
             }
             ctx.set('Content-Type', 'application/json');
-            ctx.status = 200;
-            ctx.state = { fields, files };
-            ctx.body = JSON.stringify(ctx.state, null, 2);
+            ctx.body = getBody(files.file.path)
             resolve();
         });
     });
+
     await next();
 });
 

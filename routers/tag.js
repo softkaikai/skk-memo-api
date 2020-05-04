@@ -11,7 +11,6 @@ router.post('/create', async (ctx, next) => {
     const tagCollection = dbMemo.collection('tag');
     const body = ctx.request.body;
     const [oldTagErr, oldTag] = await dbApi.findOne(tagCollection,{name: body.name});
-    console.log(oldTag)
     if (oldTagErr) {
         ctx.body = getSystemError();
         return next();
@@ -31,14 +30,13 @@ router.post('/create', async (ctx, next) => {
 
 router.get('/find', async (ctx, next) => {
     const dbMemo = dbClient.db('memo');
-    const projectCollection = dbMemo.collection('project');
-    const query = ctx.request.query;
-    const [projectsErr, projects] = await dbApi.find(projectCollection, {users: {$all: [query.phone]}});
-    if (projectsErr) {
+    const tagCollection = dbMemo.collection('tag');
+    const [oldTagErr, oldTag] = await dbApi.find(tagCollection);
+    if (oldTagErr) {
         ctx.body = getSystemError();
         return next();
     }
-    ctx.body = getBody(projects);
+    ctx.body = getBody(oldTag);
     next();
 })
 
