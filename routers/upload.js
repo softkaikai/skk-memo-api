@@ -24,7 +24,7 @@ router.post('/image', async (ctx, next) => {
 
             fs.renameSync(files.file.path, newPath);
             if (env === 'product') {
-                files.file.path = 'http://localhost:3333/public/images/' + files.file.name;
+                files.file.path = 'http://112.126.92.26:3333/public/images/' + files.file.name;
             } else {
                 files.file.path = 'http://localhost:3333/public/images/' + files.file.name;
             }

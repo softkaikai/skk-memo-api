@@ -36,6 +36,6 @@ app.use(UploadRouter.allowedMethods());
 app.use(ProjectRouter.allowedMethods());
 app.use(TagRouter.allowedMethods());
 app.use(RecordRouter.allowedMethods());
-app.listen(3333);
+app.listen(3333, '0.0.0.0');
 console.log('Listening on port 3333:');
 
